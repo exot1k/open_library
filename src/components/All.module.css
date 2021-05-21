@@ -1,0 +1,61 @@
+/*seatch form*/
+.searchBlock {
+  margin: auto;
+  width: 50%;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.searchField {
+  width: 300px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  margin: 10px;
+  background-image: url('../images/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+.searchField:focus {
+  width: 30%;
+}
+/*Book Item */
+.bookItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  list-style-type: none;
+  line-height: 1.5em;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 20px;
+  border-bottom: 1px solid #f2f0e7;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 20px;
+}
+
+.detailData {
+  padding: 20px;
+
+}.firstPublish {
+   display: block;
+}
+
+.bookTable {
+  padding-inline-start: 0px;
+}
+
+.preloaderImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
