@@ -1,37 +1,38 @@
-import {Field, Form, Formik} from "formik";
 import {getBookData} from "../../Redux/OpenLibraryReducer";
 import styles from "../All.module.css";
 import {connect} from "react-redux";
-import React from "react";
+import React, {useEffect, useState} from "react";
+import useDelay from "../Common/UseDelay/useDelay";
 
 function SearchField(props) {
+
+    const [queryResult, setQueryResult] = useState("")
+    const [queryValue, setQueryValue] = useState("q")
+    const delaySearchResult = useDelay(queryResult, 2000)
+
+    useEffect(
+        () => {
+            if (delaySearchResult) {
+                props.getBookData(queryValue, queryResult)
+            }
+        },
+        [delaySearchResult]
+    )
+
     return <div className={styles.searchBlock}>
-        <Formik
-            initialValues={{
-                searchValue: '',
-                queryValue: 'q'
-            }}
-            onSubmit={(values, {resetForm}) => {
-                props.getBookData(values['queryValue'],values['searchValue']);
-                //resetForm()
-            }}
-        >
-            {({errors, touched, isValidating}) => (
-                <Form>
-                    <Field component={"select"} id="queryValue" name="queryValue" placeholder="Поиск" className={styles.queryField}>
-                        <option value={"q"}>All</option>
-                        <option value={"title"}>Title</option>
-                        <option value={"author"}>Author</option>
-                    </Field>
-                    <Field id="searchValue" name="searchValue" placeholder="Поиск" className={styles.searchField}/>
-                </Form>
-            )}
-        </Formik>
+        <select className={styles.queryField} value={queryValue}
+                onChange={e => setQueryValue(e.target.value)}>
+            <option value={"q"}>All</option>
+            <option value={"title"}>Title</option>
+            <option value={"author"}>Author</option>
+        </select>
+        <input onChange={e => setQueryResult(e.target.value)} value={queryResult} className={styles.searchField}/>
     </div>
 }
 
-const mapDispatchToProps =  {
-        getBookData
+const mapDispatchToProps = {
+    getBookData
 }
 
-export default connect((state)=>{}, mapDispatchToProps)(SearchField);
+export default connect((state) => {
+}, mapDispatchToProps)(SearchField);
