@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import SearchField from "./components/SerachField/SearchField";
 import BookTable from "./components/BookTable/BookTable";
-import Dialog from "./components/BookTable/DetailDialog/DetailDialog";
+import Detail from "./components/DetailPopup/DetailPopup";
+
+
 
 
 function App() {
@@ -9,12 +11,10 @@ function App() {
     return (<div>
             <SearchField/>
             <BookTable/>
-            <button onClick={(e) => setOpen(true)}>Open Dialog</button>
-            <Dialog isOpen={isOpen} onClose={(e) => setOpen(false)}>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste a ipsam repellendus commodi ad, fugit id
-                magnam inventore laudantium autem delectus praesentium incidunt debitis, numquam dicta eveniet
-                obcaecati, itaque quidem?
-            </Dialog>
+           <button onClick={(e) => setOpen(true)}>Open Dialog</button>
+              <Detail isOpen={isOpen} onClose={(e) => setOpen(false)}>
+                test
+            </Detail>
         </div>
     );
 }

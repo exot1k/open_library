@@ -31,6 +31,7 @@
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
+
 .searchField:focus {
     width: 40%;
 }
@@ -66,6 +67,7 @@
         -webkit-transition: width 0.4s ease-in-out;
         transition: width 0.4s ease-in-out;
     }
+
     .searchField:focus {
         width: 100%;
     }
@@ -111,6 +113,33 @@
 
 /*Detail Dialog */
 
+.detailDialog {
+    width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: #eee;
+    padding: 10px 20px 40px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
 
+.dialogCloseButtonStyles {
+    margin-bottom: 15px;
+    border-radius: 50%;
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    align-self: flex-end;
+    padding: 3px 8px;
+    cursor: pointer;
+
+}
 
 
