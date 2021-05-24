@@ -3,6 +3,7 @@ import styles from "../All.module.css";
 import {connect} from "react-redux";
 import React, {useEffect, useState} from "react";
 import useDelay from "../Common/UseDelay/useDelay";
+import searchIcon from '../../images/Без имени-1.png'
 
 function SearchField(props) {
 
@@ -19,6 +20,10 @@ function SearchField(props) {
         [delaySearchResult]
     )
 
+    function onClickButton() {
+        props.getBookData(queryValue, queryResult)
+    }
+
     return <div className={styles.searchBlock}>
         <select className={styles.queryField} value={queryValue}
                 onChange={e => setQueryValue(e.target.value)}>
@@ -27,6 +32,7 @@ function SearchField(props) {
             <option value={"author"}>Author</option>
         </select>
         <input onChange={e => setQueryResult(e.target.value)} value={queryResult} className={styles.searchField}/>
+        <button className={styles.searchButton} onClick={onClickButton}><img src={searchIcon}/></button>
     </div>
 }
 
