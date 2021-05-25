@@ -12,7 +12,8 @@ function App() {
             <SearchField/>
             <BookTable/>
            <button onClick={(e) => setOpen(true)}>Open Dialog</button>
-              <Detail isOpen={isOpen} onClose={(e) => setOpen(false)}>
+              <Detail isOpen={isOpen} onClose={(e) => setOpen(false)} title='Заголовок'
+                      content={<p>Что-то важное</p>} >
                 test
             </Detail>
         </div>
