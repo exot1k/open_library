@@ -14,8 +14,8 @@ const initialState = {
 }
 
 const handlers = {
-    [GET_BOOK_DATA]: (state, {docs}) =>
-        ({...state, docs}),
+    [GET_BOOK_DATA]: (state, {docs, numFound}) =>
+        ({...state, docs: [...state.docs, ...docs], numFound}),
     [CHANGE_FETCHING]: (state, {isFetching}) =>
         ({...state, isFetching}),
     DEFAULT: state => state
@@ -26,7 +26,7 @@ export const openLibraryReducer = (state = initialState, action) => {
     return handler(state, action)
 }
 
-export const onBookDataGet = (docs) => ({type: GET_BOOK_DATA, docs});
+export const onBookDataGet = (docs,numFound) => ({type: GET_BOOK_DATA, docs, numFound});
 export const changeFetching = (isFetching) => ({type: CHANGE_FETCHING, isFetching});
 
 export const getBookData = (queryType, queryName, pageNumber) => async (dispatch) => {
@@ -40,7 +40,7 @@ export const getBookData = (queryType, queryName, pageNumber) => async (dispatch
             bookImageS: el.cover_i ? imageLink + el.cover_i + "-S.jpg" : ''
         }
     })
-    dispatch(onBookDataGet(docs));
+    dispatch(onBookDataGet(docs,data.numFound));
     dispatch(changeFetching(false));
 }
 

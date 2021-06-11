@@ -1,4 +1,4 @@
-/*seatch form*/
+/*search form*/
 .searchBlock {
     margin: auto;
     width: 50%;
@@ -76,6 +76,7 @@
 
 /*Book Item */
 .bookItem {
+    cursor: pointer;
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -93,7 +94,6 @@
 
 .detailData {
     padding: 20px;
-
 }
 
 .firstPublish {
@@ -130,7 +130,7 @@
 
 .modalDialog {
     width: 100%;
-    max-width: 550px;
+    max-width: 600px;
     background: white;
     position: relative;
     margin: 0 20px;
@@ -172,5 +172,22 @@
     margin: 0;
 }
 
+/*Paginator */
+
+.paginator {
+    margin: 10px;
+}
+
+.pageNumber {
+    padding: 2px;
+    border: 1px solid grey;
+}
+
+.selectedPage {
+    font-weight: bold;
+    border: black;
+    padding: 2px;
+    border: 1px solid grey;
+}
 
 
